@@ -17,7 +17,7 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-# Provision the ec2 instance for NGINX
+# Provision the ec2 instance for CLIENT
 resource "aws_instance" "client" {
   ami                    = "ami-007855ac798b5175e"
   instance_type          = "t2.micro"
@@ -38,7 +38,7 @@ resource "aws_instance" "client" {
   }
 }
 
-#Provision the ec2 instance for APACHE
+#Provision the ec2 instance for SERVER
 resource "aws_instance" "server" {
   ami                    = "ami-007855ac798b5175e"
   instance_type          = "t2.micro"
