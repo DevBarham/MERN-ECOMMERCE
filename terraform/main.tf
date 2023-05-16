@@ -22,15 +22,6 @@ resource "aws_instance" "client" {
   instance_type          = "t2.micro"
   key_name               = "newkey"
   vpc_security_group_ids = [aws_security_group.general-sg.id]
-  user_data              = <<-EOF
-                !/bin/bash
-                sudo apt-get update
-                sudo apt-get install nginx -y
-                sudo systemctl start nginx
-                sudo systemctl enable nginx
-
-
-                 EOF
 
   tags = {
     "Name" = "client"
@@ -43,14 +34,6 @@ resource "aws_instance" "server" {
   instance_type          = "t2.micro"
   key_name               = "newkey"
   vpc_security_group_ids = [aws_security_group.general-sg.id]
-  user_data              = <<-EOF
-                #!/bin/bash
-                sudo apt-get update
-                sudo apt-get install nginx -y
-                sudo systemctl start nginx
-                sudo systemctl enable nginx
-
-                EOF
 
   tags = {
     "Name" = "server"

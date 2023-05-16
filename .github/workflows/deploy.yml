@@ -62,4 +62,29 @@ jobs:
           key: ${{ env.PRIVATE_SSH_KEY }}
           envs: PRIVATE_SSH_KEY,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
           script: |-
-            mkdir done
+            sudo apt-get update
+            sudo apt-get install git -y
+            echo "--NODE & NPM--"
+            sudo apt install nodejs -y
+            sudo apt install npm -y
+            echo "-----PM2------"
+            sudo npm install -g pm2
+            sudo pm2 startup systemd
+            echo "-----NGINX------"
+            sudo apt-get install -y nginx
+            echo "---FIREWALL---"
+            sudo ufw allow OpenSSH
+            sudo ufw allow 'Nginx Full'
+            sudo ufw --force enable 
+            cd /home/ubuntu
+            sudo rm -rf memories-server
+            git clone https://github.com/DevBarham/MERN-ECOMMERCE.git
+            cd MERN-ECOMMERCE
+            cd server
+            npm install
+            sudo rm /etc/nginx/sites-available/default
+            sudo cp default /etc/nginx/sites-available/ -r
+            sudo pm2 kill
+            pm2 start app.js
+            sudo systemctl kill nginx || true
+            sudo systemctl restart nginx
