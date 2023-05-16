@@ -56,29 +56,29 @@ jobs:
           echo CLIENT_PUBLIC_IP=${{ needs.deploy-infra.outputs.CLIENT_PUBLIC_IP }} >> $GITHUB_ENV
        - name: Deploy server to EC2
         uses: appleboy/ssh-action@master
-        # with:
-        #   host: ${{ env.SERVER_PUBLIC_IP }}
-        #   username: ubuntu
-        #   key: ${{ env.PRIVATE_SSH_KEY }}
-        #   envs: PRIVATE_SSH_KEY,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
-          # script: |-
-          #   sudo apt update
-          #   # Install Git
-          #       # sudo apt install -y git
+        with:
+          host: ${{ env.SERVER_PUBLIC_IP }}
+          username: ubuntu
+          key: ${{ env.PRIVATE_SSH_KEY }}
+          envs: PRIVATE_SSH_KEY,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
+          script: |-
+            sudo apt update
+            # Install Git
+                sudo apt install -y git
 
-          #       # # Verify Git installation
-          #       # git --version
+                # Verify Git installation
+                git --version
 
-          #       # chmod +x install_git.sh
-          #       # ./install_git.sh
+                chmod +x install_git.sh
+                ./install_git.sh
 
-          #       # sudo git clone https://github.com/DevBarham/E-FrontEnd.git front-end
-          #       # cd front-end 
+                sudo git clone https://github.com/DevBarham/E-FrontEnd.git front-end
+                cd front-end 
 
-          #       # cd client && npm install
+                cd client && npm install
 
 
-          #       # npm run start
+                npm run start
 
 
           - name: Deploy client to EC2
