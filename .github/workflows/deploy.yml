@@ -62,12 +62,4 @@ jobs:
           key: ${{ env.PRIVATE_SSH_KEY }}
           envs: PRIVATE_SSH_KEY,AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
           script: |-
-            sudo apt update
-            sudo apt install -y git
-            git --version
-            chmod +x install_git.sh
-            /install_git.sh
-            sudo git clone https://github.com/DevBarham/E-FrontEnd.git front-end
-            cd front-end 
-            cd client && npm install
-            npm run start
+            mkdir done
