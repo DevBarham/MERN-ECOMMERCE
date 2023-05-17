@@ -16,7 +16,7 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-Provision the ec2 instance for CLIENT
+#Provision the ec2 instance for CLIENT
 resource "aws_instance" "client" {
   ami                    = "ami-007855ac798b5175e"
   instance_type          = "t2.micro"
