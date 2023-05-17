@@ -129,8 +129,8 @@ jobs:
             cd client
             touch .env
             echo REACT_APP_API_URL=http://"${{ needs.deploy-infra.outputs.SERVER_PUBLIC_IP }}" > .env
-            npm install
             rm -rf build
+            npm install
             npm run build
             sudo pm2 delete react-build || true
             pm2 serve build/ 3000 -f --name "react-build" --spa
