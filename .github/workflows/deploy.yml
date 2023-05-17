@@ -123,11 +123,20 @@ jobs:
             sudo ufw allow 'Nginx Full'
             sudo ufw --force enable 
             cd /home/ubuntu
-            sudo rm -rf memories-server
+            sudo rm -rf MERN-ECOMMERCE
             git clone https://github.com/DevBarham/MERN-ECOMMERCE.git
             cd MERN-ECOMMERCE
             cd client
             touch .env
             echo REACT_APP_API_URL=http://"${{ needs.deploy-infra.outputs.SERVER_PUBLIC_IP }}" > .env
+            npm install
+            rm -rf build
+            npm run build
+            sudo pm2 delete react-build || true
+            pm2 serve build/ 3000 -f --name "react-build" --spa
+            sudo rm -rf /etc/nginx/sites-available/default
+            sudo cp default /etc/nginx/sites-available/ -r
+            sudo systemctl restart nginx
+
             
            
