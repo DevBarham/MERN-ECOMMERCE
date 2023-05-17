@@ -122,7 +122,8 @@ jobs:
             sudo ufw allow OpenSSH
             sudo ufw allow 'Nginx Full'
             sudo ufw --force enable 
-            cd /home/ubuntu
+            cd /home/ubuntu/
+            
             
 
             
