@@ -1,4 +1,4 @@
-name: Matchapp Server CI/CD
+name: E-Commerce CI/CD
 on:
   push:
     branches: ['main']
