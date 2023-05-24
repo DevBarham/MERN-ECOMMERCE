@@ -98,6 +98,6 @@ This project was developed by [Dev-Barham](https://github.com/DevBarham) and is 
 
 aversy) for providing guidance and inspiration.
 
-## Contact
+## Contacts
 
 If you have any questions or need further assistance, feel free to contact the project maintainer at [saheedibrahimdamilare@gmail.com](mailto:saheedibrahimdamilare@gmail.com).
