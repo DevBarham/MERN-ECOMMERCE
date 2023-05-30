@@ -73,6 +73,8 @@ Follow these steps to set up the MERN E-Commerce application locally:
 - View your order history and manage your profile details.
 - Admin users can access the admin dashboard by visiting `/admin` and login using their credentials.
 - From the admin dashboard, manage products, categories, orders, and users.
+
+
 # MERN Ecommerce - GitHub Action
 
 This GitHub Action, `deploy.yml`, is designed to automate the deployment process for the MERN Ecommerce application. It helps to streamline the deployment workflow and ensures consistent and efficient deployments.
